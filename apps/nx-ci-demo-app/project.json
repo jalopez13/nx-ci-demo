@@ -1,0 +1,54 @@
+{
+  "root": "apps/nx-ci-demo-app",
+  "sourceRoot": "apps/nx-ci-demo-app",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/nx-ci-demo-app",
+        "outputPath": "dist/apps/nx-ci-demo-app"
+      },
+      "configurations": {
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "options": {
+        "buildTarget": "nx-ci-demo-app:build",
+        "dev": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "nx-ci-demo-app:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "nx-ci-demo-app:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/nx-ci-demo-app"],
+      "options": {
+        "jestConfig": "apps/nx-ci-demo-app/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nx-ci-demo-app/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}
