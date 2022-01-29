@@ -3,6 +3,16 @@
   "sourceRoot": "apps/nx-ci-demo-app",
   "projectType": "application",
   "targets": {
+    "deploy": {
+      "builder": "@nrwl/run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "yarn run nx-ci-demo-app:affected:prod"
+          }
+        ]
+      }
+    },
     "build": {
       "executor": "@nrwl/next:build",
       "outputs": ["{options.outputPath}"],
