@@ -2,10 +2,10 @@ name: nx-ci-demo
 
 on: [push]
 
-jobs: 
+jobs:
   demo-job:
     runs-on: ubuntu-latest
     steps:
-      - uses: action/checkout@v2
-      - uses: action/setup-node@v1
-      - run: npm run start
+      - uses: mansagroup/nrwl-nx-action@v2
+        with:
+          targets: lint,build,deploy
