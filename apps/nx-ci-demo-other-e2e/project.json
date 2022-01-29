@@ -1,0 +1,28 @@
+{
+  "root": "apps/nx-ci-demo-other-e2e",
+  "sourceRoot": "apps/nx-ci-demo-other-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/nx-ci-demo-other-e2e/cypress.json",
+        "devServerTarget": "nx-ci-demo-other:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "nx-ci-demo-other:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nx-ci-demo-other-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["nx-ci-demo-other"]
+}
