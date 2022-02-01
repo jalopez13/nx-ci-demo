@@ -1,14 +1,14 @@
 {
-  "root": "apps/nx-ci-demo-app",
-  "sourceRoot": "apps/nx-ci-demo-app",
+  "root": "apps/site",
+  "sourceRoot": "apps/site",
   "projectType": "application",
   "targets": {
     "deploy": {
-      "builder": "@nrwl/run-commands",
+      "executor": "@nrwl/run-commands",
       "options": {
         "commands": [
           {
-            "command": "yarn run nx-ci-demo-app:affected:prod"
+            "command": "yarn run site:affected:prod"
           }
         ]
       }
@@ -18,8 +18,8 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "root": "apps/nx-ci-demo-app",
-        "outputPath": "dist/apps/nx-ci-demo-app"
+        "root": "apps/site",
+        "outputPath": "dist/apps/site"
       },
       "configurations": {
         "production": {}
@@ -28,12 +28,12 @@
     "serve": {
       "executor": "@nrwl/next:server",
       "options": {
-        "buildTarget": "nx-ci-demo-app:build",
+        "buildTarget": "site:build",
         "dev": true
       },
       "configurations": {
         "production": {
-          "buildTarget": "nx-ci-demo-app:build:production",
+          "buildTarget": "site:build:production",
           "dev": false
         }
       }
@@ -41,14 +41,14 @@
     "export": {
       "executor": "@nrwl/next:export",
       "options": {
-        "buildTarget": "nx-ci-demo-app:build:production"
+        "buildTarget": "site:build:production"
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/nx-ci-demo-app"],
+      "outputs": ["coverage/apps/site"],
       "options": {
-        "jestConfig": "apps/nx-ci-demo-app/jest.config.js",
+        "jestConfig": "apps/site/jest.config.js",
         "passWithNoTests": true
       }
     },
@@ -56,7 +56,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/nx-ci-demo-app/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/site/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },

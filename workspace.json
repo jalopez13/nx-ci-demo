@@ -1,9 +1,7 @@
 {
   "version": 2,
   "projects": {
-    "nx-ci-demo-app": "apps/nx-ci-demo-app",
-    "nx-ci-demo-app-e2e": "apps/nx-ci-demo-app-e2e",
-    "nx-ci-demo-other": "apps/nx-ci-demo-other",
-    "nx-ci-demo-other-e2e": "apps/nx-ci-demo-other-e2e"
+    "site": "apps/site",
+    "site-e2e": "apps/site-e2e"
   }
 }

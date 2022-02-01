@@ -1,5 +1,5 @@
 {
-  "npmScope": "nx-ci-demo",
+  "npmScope": "site",
   "affected": {
     "defaultBase": "main"
   },
@@ -42,5 +42,5 @@
       }
     }
   },
-  "defaultProject": "nx-ci-demo-app"
+  "defaultProject": "site"
 }
