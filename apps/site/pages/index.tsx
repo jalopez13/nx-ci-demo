@@ -8,7 +8,7 @@ export function Index() {
    */
   return (
     <div className={styles.page}>
-      <h1>Hello 👋, Welcome to NC with Github Actions CI/CD Demo App!</h1>
+      <h1>Hello 👋, Welcome to NX with Github Actions CI/CD Demo App!</h1>
     </div>
   );
 }
