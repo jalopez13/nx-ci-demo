@@ -1,17 +1,3 @@
-FROM node:lts-alpine
-RUN mkdir -p /pcm/nextjs-docker
-WORKDIR /pcm/nextjs-docker
-COPY package*.json ./
-RUN 
-RUN yarn install
-COPY . .
-RUN npm i -g @nrwl/cli
-RUN npm install --global yarn
-RUN yarn nx affected --target=build 
-ENV PORT=3000
-EXPOSE ${PORT}
-CMD yarn nx serve nx-ci-demo-app
-
 # Install dependencies only when needed
 FROM node:17-alpine AS deps
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
@@ -61,4 +47,4 @@ ENV PORT 3000
 # Uncomment the following line in case you want to disable telemetry.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
-CMD yarn nx serve
+CMD ["yarn", "start"]
