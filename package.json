@@ -1,5 +1,5 @@
 {
-  "name": "nx-ci-demo",
+  "name": "ci-demo-app",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
